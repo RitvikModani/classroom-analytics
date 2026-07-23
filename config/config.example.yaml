@@ -1,0 +1,33 @@
+# Committed template — copy to config.yaml and tune. See config.yaml comments.
+source: 0
+device: auto              # auto | intel:gpu (OpenVINO on Arc) | cpu
+model: yolov8n-pose.pt
+imgsz: 640
+det_conf: 0.30
+frame_skip: 0
+queue_size: 4
+reconnect_delay: 2.0
+smoothing_window: 9
+
+thresholds:
+  kp_conf: 0.30
+  hand_raise_ratio: 0.40
+  head_down_ratio: 0.35
+  head_up_ratio: 0.55
+  standing_aspect: 2.2
+  min_core_conf: 0.30
+
+aggregate:
+  timeline_maxlen: 600
+  engagement_window: 60
+  off_task_frames: 20
+  sleep_frames: 90
+  heads_down_alert_pct: 30.0
+  low_attention_alert_pct: 50.0
+  neighbor_dist_ratio: 1.8
+
+server:
+  host: 127.0.0.1
+  port: 8000
+  jpeg_quality: 70
+  send_frames: true

@@ -1,0 +1,20 @@
+# Core CV + model
+ultralytics>=8.3.0        # YOLOv8-pose + ByteTrack
+opencv-python>=4.9
+numpy>=1.26
+
+# Config
+pyyaml>=6.0
+
+# Backend
+fastapi>=0.110
+uvicorn[standard]>=0.29
+
+# Intel Arc iGPU inference (export target); pulled in by ultralytics export too
+openvino>=2024.0
+
+# Dev / test
+pytest>=8.0
+
+# --- optional fallback runtime (Windows, any DX12 GPU incl. Arc) ---
+# onnxruntime-directml>=1.17   # see README "DirectML path"; not required for CPU/OpenVINO

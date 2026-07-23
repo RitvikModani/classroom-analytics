@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classroom Behavior Analytics</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="dot" id="conn-dot"></span>
+      <h1>Classroom&nbsp;Analytics</h1>
+    </div>
+    <div class="topstats">
+      <div class="pill"><span id="people">0</span><label>people</label></div>
+      <div class="pill"><span id="fps">0</span><label>fps</label></div>
+    </div>
+  </header>
+
+  <main class="grid">
+    <section class="video-card">
+      <div class="card-h">Live feed <em>· tracker IDs, no identity</em></div>
+      <div class="video-wrap">
+        <img id="feed" alt="live annotated feed" />
+        <div id="feed-placeholder">waiting for stream…</div>
+      </div>
+      <div id="alerts" class="alerts"></div>
+    </section>
+
+    <section class="side">
+      <div class="attention-card">
+        <div class="ring" id="ring">
+          <span id="attention">0<i>%</i></span>
+          <label>class attention</label>
+        </div>
+      </div>
+      <div class="counters" id="counters"></div>
+    </section>
+
+    <section class="chart-card">
+      <div class="card-h">Attention over session</div>
+      <canvas id="chart" width="900" height="180"></canvas>
+    </section>
+
+    <section class="tracks-card">
+      <div class="card-h">Per-student engagement <em>· anonymous ID</em></div>
+      <div id="tracks" class="tracks"></div>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

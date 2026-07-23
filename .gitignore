@@ -1,0 +1,19 @@
+# secrets
+.env
+
+# model weights & exports (fetch via models/download_models.py)
+models/*.pt
+models/*_openvino_model/
+models/*.onnx
+models/*.engine
+
+# sample media
+data/samples/*
+!data/samples/.gitkeep
+
+# python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
