@@ -1,0 +1,68 @@
+:root {
+  --bg: #0e1116; --card: #171b22; --card2: #1e232c; --line: #262c37;
+  --txt: #e6e9ef; --mut: #8b93a3; --accent: #38bdf8;
+  --green: #22c55e; --amber: #f59e0b; --red: #ef4444; --blue: #3b82f6; --grey: #6b7280;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--txt); font: 15px/1.4 -apple-system, Segoe UI, Roboto, sans-serif; }
+
+.topbar { display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 22px; border-bottom: 1px solid var(--line); background: #10141b; }
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand h1 { font-size: 18px; font-weight: 650; letter-spacing: .2px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; background: var(--red); box-shadow: 0 0 8px currentColor; }
+.dot.live { background: var(--green); }
+.topstats { display: flex; gap: 12px; }
+.pill { background: var(--card2); border: 1px solid var(--line); border-radius: 10px;
+  padding: 6px 14px; text-align: center; }
+.pill span { font-size: 20px; font-weight: 700; }
+.pill label { display: block; font-size: 10px; text-transform: uppercase; color: var(--mut); letter-spacing: .5px; }
+
+.grid { display: grid; grid-template-columns: 1.7fr 1fr; grid-template-areas:
+  "video side" "chart side" "tracks tracks"; gap: 16px; padding: 18px; max-width: 1400px; margin: 0 auto; }
+.video-card { grid-area: video; } .side { grid-area: side; }
+.chart-card { grid-area: chart; } .tracks-card { grid-area: tracks; }
+
+section { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px; }
+.card-h { font-size: 12px; text-transform: uppercase; letter-spacing: .6px; color: var(--mut); margin-bottom: 10px; }
+.card-h em { color: var(--grey); text-transform: none; letter-spacing: 0; font-style: normal; }
+
+.video-wrap { position: relative; background: #000; border-radius: 10px; overflow: hidden; aspect-ratio: 4/3; }
+#feed { width: 100%; height: 100%; object-fit: contain; display: none; }
+#feed-placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--mut); }
+.alerts { margin-top: 10px; min-height: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
+.alert { background: rgba(239,68,68,.12); color: #fca5a5; border: 1px solid rgba(239,68,68,.35);
+  padding: 4px 10px; border-radius: 20px; font-size: 12px; }
+
+
+.side { display: flex; flex-direction: column; gap: 16px; }
+.attention-card { display: flex; justify-content: center; padding: 20px; }
+.ring { --pct: 0; width: 190px; height: 190px; border-radius: 50%;
+  background: conic-gradient(var(--green) calc(var(--pct)*1%), #232a35 0);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; transition: --pct .4s; }
+.ring::before { content: ""; position: absolute; inset: 14px; border-radius: 50%; background: var(--card); }
+.ring span { position: relative; font-size: 46px; font-weight: 800; }
+.ring span i { font-size: 22px; font-style: normal; color: var(--mut); }
+.ring label { position: relative; font-size: 12px; color: var(--mut); text-transform: uppercase; letter-spacing: .5px; }
+
+.counters { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.counter { background: var(--card2); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.counter .n { font-size: 30px; font-weight: 800; line-height: 1; }
+.counter .l { font-size: 11px; text-transform: uppercase; letter-spacing: .4px; color: var(--mut); margin-top: 4px; }
+.counter.hand_raised { border-left: 4px solid var(--green); }
+.counter.attentive { border-left: 4px solid #16a34a; }
+.counter.head_down { border-left: 4px solid var(--amber); }
+.counter.off_task { border-left: 4px solid var(--red); }
+.counter.out_of_seat { border-left: 4px solid var(--blue); }
+.counter.unknown { border-left: 4px solid var(--grey); }
+
+#chart { width: 100%; height: 180px; }
+
+.tracks { display: flex; flex-wrap: wrap; gap: 10px; }
+.track { background: var(--card2); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; min-width: 120px; }
+.track .tid { font-weight: 700; font-size: 13px; }
+.track .act { font-size: 11px; color: var(--mut); margin: 3px 0 6px; }
+.bar { height: 6px; border-radius: 4px; background: #2a313d; overflow: hidden; }
+.bar > i { display: block; height: 100%; background: linear-gradient(90deg, var(--red), var(--amber), var(--green)); }
+
+@media (max-width: 900px) { .grid { grid-template-columns: 1fr; grid-template-areas: "video" "side" "chart" "tracks"; } }
